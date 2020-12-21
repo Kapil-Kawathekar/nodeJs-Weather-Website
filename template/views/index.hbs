@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="/js/app.js"></script>
+  </head>
+  <body>
+    {{!-- <h2>{{title}}</h2> --}}
+    {{>header}}
+    {{!-- <p>Created by {{name}}</p> --}}
+
+      <form>
+        <input type="text" placeholder="Location">
+        <button type="submit">Search</button>
+
+      </form>
+ <h2><b><p id="message-one"></p></b></h2>
+<b><p id="message-two"></p></b></h2> 
+    {{>footer}}
+  </body>
+</html>
