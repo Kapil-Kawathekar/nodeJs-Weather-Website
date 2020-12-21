@@ -3,6 +3,7 @@ const forecast = (lat, lng, callback) => {
   const url = `http://api.weatherstack.com/current?access_key=1fb0d9610a16c830d276f5a2f48c8731&query=${lat},${lng}&units=m`;
 
   request({ url: url, json: true }, (error, response) => {
+    // console.log(response.body);
     if (error) {
       callback("Unable to connect to weather API", undefined);
     } else if (response.body.error) {
@@ -12,7 +13,8 @@ const forecast = (lat, lng, callback) => {
         desc: response.body.current.weather_descriptions[0],
         location: response.body.location.name,
         temp: response.body.current.temperature,
-        precip: response.body.current.precip,
+        precip: response.body.current.cloudcover,
+        img: response.body.current.weather_icons[0],
       });
     }
   });

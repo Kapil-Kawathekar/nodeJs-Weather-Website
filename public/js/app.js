@@ -14,7 +14,8 @@ const fetchingData = function (location) {
       } else {
         console.log(data);
         messageOne.textContent = `Hello ${location} !!`;
-        messageTwo.textContent = `${data.forecaste.desc} throught the day. It is ${data.forecaste.temp} degree out. There is ${data.forecaste.precip}% of chance of rain`;
+        imgsrc.src = data.forecaste.img;
+        messageTwo.textContent = ` ${data.forecaste.desc} Day. It is currently ${data.forecaste.temp} degree out. There is ${data.forecaste.precip}% of cloudcover`;
       }
     });
   });
@@ -24,6 +25,7 @@ const btn = document.querySelector("form");
 const search = document.querySelector("input");
 const messageOne = document.querySelector("#message-one");
 const messageTwo = document.querySelector("#message-two");
+const imgsrc = document.querySelector("img");
 btn.addEventListener("submit", (e) => {
   e.preventDefault();
   fetchingData(search.value);
